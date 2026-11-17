@@ -1,0 +1,20 @@
+meta {
+  name: Crear grupo
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/grupos
+  body: json
+  auth: none
+}
+
+headers {
+  Origin: {{baseUrl}}
+  Cookie: uid={{uid}}
+}
+
+body:json {
+  { "nombre": "Paseo a Guatapé", "tuNombre": "Ana" }
+}

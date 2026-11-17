@@ -1,0 +1,20 @@
+meta {
+  name: Registrar pago
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/api/grupos/{{grupoId}}/pagos
+  body: json
+  auth: none
+}
+
+headers {
+  Origin: {{baseUrl}}
+  Cookie: uid={{uid}}
+}
+
+body:json {
+  { "deUid": "otro-usuario", "aUid": "usuario-demo", "montoCentavos": 2000000 }
+}

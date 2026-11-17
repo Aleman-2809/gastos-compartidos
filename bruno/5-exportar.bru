@@ -1,0 +1,15 @@
+meta {
+  name: Exportar CSV
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/api/grupos/{{grupoId}}/exportar
+  body: none
+  auth: none
+}
+
+headers {
+  Cookie: uid={{uid}}
+}

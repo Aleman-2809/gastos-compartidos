@@ -1,0 +1,24 @@
+meta {
+  name: Crear sesión (Firebase)
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/api/sesion
+  body: json
+  auth: none
+}
+
+headers {
+  Origin: {{baseUrl}}
+}
+
+body:json {
+  { "idToken": "{{idToken}}" }
+}
+
+docs {
+  Solo con Firebase configurado. Obtén un idToken iniciando sesión en la app (o con la API REST de Firebase Auth).
+  Devuelve 501 si Firebase no está configurado y 403 si falta el encabezado Origin.
+}
