@@ -1,0 +1,254 @@
+:root {
+  --fondo: #ffffff;
+  --texto: #1a1a1a;
+  --suave: #f3f4f6;
+  --borde: #6b7280;
+  --acento: #0b57d0;
+  --positivo: #0a6b2d;
+  --negativo: #a61b1b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #121212;
+    --texto: #f2f2f2;
+    --suave: #1e1e1e;
+    --borde: #9ca3af;
+    --acento: #8ab4f8;
+    --positivo: #6fd58f;
+    --negativo: #ff8a8a;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+header,
+footer {
+  background: var(--suave);
+  padding: 0.75rem 1rem;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.marca {
+  margin: 0;
+  font-weight: 700;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+a {
+  color: var(--acento);
+}
+a,
+button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
+.saltar {
+  position: absolute;
+  left: -999px;
+  background: var(--fondo);
+  padding: 0.5rem 1rem;
+}
+.saltar:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+  z-index: 10;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  line-height: 1.2;
+}
+section {
+  margin-block: 2rem;
+}
+p,
+li {
+  max-width: 70ch;
+}
+
+.tabla-scroll {
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+caption {
+  text-align: left;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
+th,
+td {
+  border: 1px solid var(--borde);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+thead th {
+  background: var(--suave);
+}
+td.monto {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.deben {
+  color: var(--negativo);
+  font-weight: 600;
+}
+.le-deben {
+  color: var(--positivo);
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.formulario {
+  display: grid;
+  gap: 1rem;
+  max-width: 32rem;
+}
+.formulario label {
+  display: grid;
+  gap: 0.25rem;
+}
+input,
+select {
+  min-height: 44px;
+  padding: 0.5rem;
+  font: inherit;
+  color: var(--texto);
+  background: var(--fondo);
+  border: 2px solid var(--borde);
+  border-radius: 6px;
+}
+input[type="checkbox"] {
+  min-height: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+fieldset {
+  border: 2px solid var(--borde);
+  border-radius: 6px;
+}
+.participante {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.participante label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+button {
+  padding: 0.5rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--fondo);
+  background: var(--acento);
+  border: 2px solid var(--acento);
+  border-radius: 6px;
+  justify-content: center;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.error {
+  color: var(--negativo);
+  font-weight: 600;
+}
+.codigo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+}
+.codigo p {
+  margin: 0;
+}
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+dialog {
+  color: var(--texto);
+  background: var(--fondo);
+  border: 2px solid var(--borde);
+  border-radius: 8px;
+  max-width: min(28rem, 92vw);
+}
+dialog::backdrop {
+  background: rgb(0 0 0 / 0.5);
+}
